@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:weightSum="1">
+
+    <!-- Trg -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Nama Anggota"
+        android:layout_marginBottom="5dp"
+        />
+
+    <!-- Spinner Element -->
+    <Spinner
+        android:id="@+id/spinner_trg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Target Code -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="NIK Anggota"
+        android:layout_marginBottom="5dp"
+        />
+
+    <EditText
+        android:id="@+id/editNIK"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:ems="10"
+        android:inputType="none" />
+
+    <!-- Target Code -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Hasil Kerja Standar"
+        android:layout_marginBottom="5dp"
+        />
+
+    <EditText
+        android:id="@+id/editHasilKerjaStandar"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <!-- Target Code -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Hasil Kerja Real"
+        android:layout_marginBottom="5dp"
+        />
+
+    <EditText
+        android:id="@+id/editHasilKerjaReal"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+</LinearLayout>

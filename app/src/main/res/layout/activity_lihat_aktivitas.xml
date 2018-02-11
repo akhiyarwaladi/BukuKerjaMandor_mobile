@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <LinearLayout
+            android:id="@+id/detail_aktivitas"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <!-- Trg -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dip"
+                android:text="Trg" />
+
+            <!-- Spinner Element -->
+            <TextView
+                android:id="@+id/data_trg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ABC"
+                android:textStyle="bold" />
+            //android:prompt="@string/spinner_title"
+            />
+
+            <!-- Target Code -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dip"
+                android:text="Target Code" />
+
+            <!-- Spinner Element -->
+            <TextView
+                android:id="@+id/data_target_code"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ABC"
+                android:textStyle="bold" />
+            //android:prompt="@string/spinner_title
+            />
+
+            <!-- Aktivitas -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dip"
+                android:text="Aktivitas" />
+
+            <!-- Spinner Element -->
+            <TextView
+                android:id="@+id/data_aktivitas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ABC"
+                android:textStyle="bold" />
+            //android:prompt="@string/spinner_title"
+            />
+
+            <!-- Foto -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dip"
+                android:text="Foto Aktivitas" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="171dp"
+                android:layout_height="132dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_menu_gallery" />
+
+            <!-- Upload Photo Element -->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

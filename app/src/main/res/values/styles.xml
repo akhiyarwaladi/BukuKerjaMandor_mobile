@@ -1,0 +1,54 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="splashScreen" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="login" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="main_menu" parent="AppTheme"></style>
+
+    <style name="activity_main" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/colorTextLight</item>
+    </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="navigationDrawer" parent="AppTheme">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:buttonStyle">@color/colorTextLight</item>
+    </style>
+
+    <style name="tambah_activity" parent="AppTheme">
+        <item name="android:homeAsUpIndicator">@drawable/ic_close_white</item>
+    </style>
+
+    <style name="lihat_activity" parent="AppTheme">
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back_white</item>
+    </style>
+
+    <style name="Theme.Custom" parent="AppTheme">
+        <item name="android:calendarViewStyle">@style/Widget.CalendarView.Custom</item>
+    </style>
+
+    <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
+        <item name="android:textAppearanceButton">@color/colorAccent</item>
+    </style>
+
+</resources>

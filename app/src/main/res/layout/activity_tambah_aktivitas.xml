@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/detail_aktivitas"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <!-- Trg -->
+        <LinearLayout
+            android:id="@+id/layout_nama_aktivitas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aktivitas"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner_aktivitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_trg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Trg"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner_trg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Spinner Element --><![CDATA[
+            //android:prompt="@string/spinner_title"
+            />
+
+            ]]><!-- Target Code -->
+        <LinearLayout
+            android:id="@+id/layout_target_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Target Code"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner_target_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Spinner Element --><![CDATA[
+            //android:prompt="@string/spinner_title
+            />
+
+            ]]><!-- Aktivitas -->
+
+        <!-- Spinner Element --><![CDATA[
+            //android:prompt="@string/spinner_title"
+            />
+
+            ]]><!-- Foto -->
+        <LinearLayout
+            android:id="@+id/layout_foto_aktivitas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Foto Aktivitas"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/tambah_foto_btn"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:text="TAMBAH FOTO AKTIVITAS" />
+        </LinearLayout>
+
+        <!-- Upload Photo Element -->
+
+    </LinearLayout>
+
+</RelativeLayout>

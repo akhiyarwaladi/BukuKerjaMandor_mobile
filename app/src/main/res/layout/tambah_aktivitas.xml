@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:weightSum="1">
+
+    <!-- Trg -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Trg"
+        android:layout_marginBottom="5dp"
+        />
+
+    <!-- Spinner Element -->
+    <Spinner
+        android:id="@+id/spinner_trg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+        //android:prompt="@string/spinner_title"
+        />
+
+    <!-- Target Code -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Target Code"
+        android:layout_marginBottom="5dp"
+        />
+
+    <!-- Spinner Element -->
+    <Spinner
+        android:id="@+id/spinner_target_code"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+        //android:prompt="@string/spinner_title
+        />
+
+    <!-- Aktivitas -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Aktivitas"
+        android:layout_marginBottom="5dp"
+        />
+
+    <!-- Spinner Element -->
+    <Spinner
+        android:id="@+id/spinner_aktivitas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+        //android:prompt="@string/spinner_title"
+        />
+
+    <!-- Foto -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Foto Aktivitas"
+        android:layout_marginBottom="5dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_menu_gallery"
+        android:layout_weight="0.10" />
+
+    <!-- Upload Photo Element -->
+
+</LinearLayout>
