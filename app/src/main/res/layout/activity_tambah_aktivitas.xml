@@ -113,13 +113,41 @@
                 android:text="Foto Aktivitas"
                 android:textSize="12sp" />
 
-            <Button
-                android:id="@+id/tambah_foto_btn"
-                style="@style/Widget.AppCompat.Button"
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/tambah_foto_btn"
+                    style=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GALLERY"
+                    android:background="#9575CD"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/tambah_foto_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CAPTURE"
+                    android:background="#27ae60"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+
+
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="2dp"
-                android:text="TAMBAH FOTO AKTIVITAS" />
+
+                android:id="@+id/imageViewActivity" />
+
         </LinearLayout>
 
         <!-- Upload Photo Element -->

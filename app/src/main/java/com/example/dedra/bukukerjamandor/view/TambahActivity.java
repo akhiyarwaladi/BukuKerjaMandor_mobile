@@ -34,6 +34,7 @@ public class TambahActivity extends AppCompatActivity
     private Button kembaliBtn, lanjutBtn, simpanBtn;
     private int page = 0 ;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +83,7 @@ public class TambahActivity extends AppCompatActivity
         lanjutBtn = (Button) findViewById(R.id.lanjut);
         simpanBtn = (Button) findViewById(R.id.simpan);
 
+
         progress1.setVisibility(View.VISIBLE);
         idle2.setVisibility(View.VISIBLE);
         idle3.setVisibility(View.VISIBLE);
@@ -91,6 +93,7 @@ public class TambahActivity extends AppCompatActivity
         simpanBtn.setVisibility(View.INVISIBLE);
         kembaliBtn.setVisibility(View.INVISIBLE);
         lanjutBtn.setVisibility(View.VISIBLE);
+
 
     }
 
@@ -182,6 +185,8 @@ public class TambahActivity extends AppCompatActivity
                 }
         });
 
+
+
     }
 
     @Override
@@ -221,6 +226,7 @@ public class TambahActivity extends AppCompatActivity
         kembaliBtn.setVisibility(View.VISIBLE);
         lanjutBtn.setVisibility(View.VISIBLE);
 
+
         setTitle("Tambah Material");
     }
 
@@ -235,6 +241,7 @@ public class TambahActivity extends AppCompatActivity
         simpanBtn.setVisibility(View.VISIBLE);
         kembaliBtn.setVisibility(View.VISIBLE);
         lanjutBtn.setVisibility(View.INVISIBLE);
+
 
         setTitle("Tambah Pegawai");
     }
@@ -277,6 +284,7 @@ public class TambahActivity extends AppCompatActivity
         alert11.show();
 
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
