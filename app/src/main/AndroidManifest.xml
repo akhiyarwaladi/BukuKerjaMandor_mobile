@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dedra.bukukerjamandor">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -23,50 +26,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".login"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/login" />
-
         <activity
             android:name=".MainActivity"
             android:label="BKM Hari Ini"
-            android:theme="@style/navigationDrawer"/>
-
+            android:theme="@style/navigationDrawer" />
         <activity
             android:name=".view.TambahActivity"
             android:label="Tambah Aktivitas"
             android:theme="@style/navigationDrawer" />
-
         <activity
             android:name=".view.TambahAktivitasActivity"
             android:label="Tambah Aktivitas"
             android:theme="@style/tambah_activity" />
-
         <activity
             android:name=".view.TambahMaterialActivity"
             android:label="Tambah Material"
             android:theme="@style/tambah_activity" />
-
         <activity
             android:name=".view.TambahPegawaiActivity"
             android:label="Tambah Pegawai"
             android:theme="@style/tambah_activity" />
-
         <activity
             android:name=".view.LihatActivity"
             android:label="Lihat Aktivitas"
             android:theme="@style/lihat_activity" />
-
         <activity
             android:name=".view.DetailAktivitasActivity"
             android:label="Detail Aktivitas"
             android:theme="@style/lihat_activity" />
-
+        <activity android:name=".register"></activity>
     </application>
-
-    <uses-permission android:name="android.permission.CAMERA"> </uses-permission>
 
 </manifest>

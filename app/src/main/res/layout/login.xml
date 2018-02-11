@@ -51,6 +51,17 @@
             android:text="Masuk"
             android:textColor="@color/colorTextLight" />
 
+        <Button
+            android:id="@+id/btnLinkToRegisterScreen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:background="@null"
+            android:text="Not a member? Sign up now"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp" />
+
     </LinearLayout>
 
 </ScrollView>

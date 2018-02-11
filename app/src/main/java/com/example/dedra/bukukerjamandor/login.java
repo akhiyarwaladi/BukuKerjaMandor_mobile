@@ -97,6 +97,12 @@ public class login extends AppCompatActivity {
         showPDialog();
     }
 
+    @OnClick(R.id.btnLinkToRegisterScreen)
+    public void register(){
+        Intent intent = new Intent(login.this, register.class);
+        startActivity(intent);
+    }
+
     private void checkLoginWithPass() {
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Keys.SHARED_PREFS_KEY, 0);
