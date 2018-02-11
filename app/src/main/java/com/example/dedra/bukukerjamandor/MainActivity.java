@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.dedra.bukukerjamandor.app.Config;
 import com.example.dedra.bukukerjamandor.helper.DatabaseHelper;
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     DatabaseHelper db;
-
+    String username;
+    TextView namaUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         db.closeDB();
+        ////////////////////////// SET NAMA USER ///////////////////////////////
+        View headerView = navigationView.getHeaderView(0);
+        namaUser = (TextView) headerView.findViewById(R.id.textViewUsername);
+        final SharedPreferences sharedPreferencesName= getSharedPreferences(Config.SHARED_PREF_NAME,
+                Context.MODE_PRIVATE);
+        username = sharedPreferencesName.getString(Config.USERNAME_SHARED_PREF, "");
+        namaUser.setText(username);
+        ///////////////////////////////////////////////////////////////////////////
     }
 
     @Override
