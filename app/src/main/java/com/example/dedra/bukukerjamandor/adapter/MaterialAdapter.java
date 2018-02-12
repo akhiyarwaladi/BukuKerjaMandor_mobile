@@ -1,5 +1,7 @@
 package com.example.dedra.bukukerjamandor.adapter;
 
+
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,26 +10,49 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dedra.bukukerjamandor.R;
+import com.example.dedra.bukukerjamandor.model.Material;
 import com.example.dedra.bukukerjamandor.view.TambahMaterialActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Dedra on 29/08/2017.
  */
 
-public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHolder> {
+public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.MyViewHolder> {
 
-    private ArrayList<String> rvData;
+    private List<Material> rvData;
+    private Context mContext;
+    private View itemView;
 
-    public MaterialAdapter(ArrayList<String> inputData) {
-        rvData = inputData;
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+
+        public TextView nama_material, unit;
+        public MyViewHolder(View view) {
+            super(view);
+            nama_material = (TextView) view.findViewById(R.id.nama_material);
+            unit = (TextView) view.findViewById(R.id.label_satuan_kuantitas);
+        }
+    }
+    public MaterialAdapter(Context mContext, List<Material> inputData) {
+        this.mContext = mContext;
+        this.rvData = inputData;
+    }
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.tambah_rv_material_item, parent, false);
+
+        return new MyViewHolder(itemView);
     }
 
     @Override
-    public int getItemViewType(int position) {
-        return R.layout.tambah_rv_material_item;
-        // return (position == rvData.size()) ? R.layout.recyclerview_tambah_material: R.layout.tambah_rv_material_item;
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        final Material material = rvData.get(position);
+        holder.nama_material.setText(material.getNama_material());
+        holder.unit.setText(material.getUnit());
+
     }
 
     @Override
@@ -36,58 +61,6 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
         return rvData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        // di tutorial ini kita hanya menggunakan data String untuk tiap item
-        public TextView nama_material;
-        //public TextView tvTambah;
-        //public TextView tvSubtitle;
-
-        public ViewHolder(View v) {
-            super(v);
-            nama_material = (TextView) v.findViewById(R.id.nama_material);
-            //tvTambah = (TextView) v.findViewById(R.id.tv_tambah);
-            //tvSubtitle = (TextView) v.findViewById(R.id.tv_subtitle);
-        }
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View itemView;
-
-        // membuat view baru
-//        if(viewType == R.layout.tambah_rv_material_item) {
-            itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.tambah_rv_material_item,
-                    parent, false);
-//        }
-//        else{
-//            itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_tambah_material,
-//                    parent, false);
-//        }
-
-        // mengeset ukuran view, margin, padding, dan parameter layout lainnya
-        return new ViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-//        if (position == rvData.size()) {
-//            holder.tvTambah.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent i = new Intent(view.getContext(), TambahMaterialActivity.class);
-//                    view.getContext().startActivity(i);
-//                }
-//            });
-//        }
-        // - mengambil elemen dari dataset (ArrayList) pada posisi tertentu
-        // - mengeset isi view dengan elemen dari dataset tersebut
-//        else {
-            final String name = rvData.get(position);
-            holder.nama_material.setText(name);
-            //holder.tvSubtitle.setText("Frau " + position);
-//        }
-    }
 
 }

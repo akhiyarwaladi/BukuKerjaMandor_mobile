@@ -6,8 +6,8 @@ package com.example.dedra.bukukerjamandor.app;
 
 public class EndPoint {
 
-    public static final String BASE_URL = "http://10.5.95.50/BukuKerjaMandor_server/v1";
-    public static final String URL_ALAT = BASE_URL + "/getalatuser";
+    public static final String BASE_URL = "http://192.168.43.98/BukuKerjaMandor_server/v1";
+    public static final String URL_MATERIAL = BASE_URL + "/getMaterial";
     public static final String URL_DATA = BASE_URL + "/databyidalat";
     public static final String URL_LOGIN = BASE_URL + "/login";
     public static final String URL_REGISTER = BASE_URL + "/register";
