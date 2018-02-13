@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -43,7 +44,8 @@ public class TambahPegawaiActivity extends AppCompatActivity {
     private String TAG = TambahActivity.class.getSimpleName();
     List<Pegawai> allPegawai = new ArrayList<Pegawai>();
     String apiKey, userId;
-    String namaAnggota[] = {};
+    ArrayAdapter<String> adapter;
+    List <String> namaAnggota;
     private Spinner spNamaAnggota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,14 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         userId = sharedPreferencesUid.getString(Config.USERID_SHARED_PREF, "");
         apiKey = sharedPreferencesApi.getString(Config.APIKEY_SHARED_PREF, "");
-        spNamaAnggota = (Spinner) findViewById(R.id.spinner_trg);
+        spNamaAnggota = (Spinner) findViewById(R.id.spinner_trg_pegawai);
+
+        namaAnggota = new ArrayList<String>();
         getAllPegawai();
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, namaAnggota);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spNamaAnggota.setAdapter(adapter);
     }
 
     public void getAllPegawai(){
@@ -86,6 +94,9 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                             String username = dataObj.getString("username");
 
                             Pegawai pegawai = new Pegawai( id_pegawai, nama_pegawai, panggilan_pegawai, jabatan, status, username );
+                            String spinnerText = id_pegawai + " - " + nama_pegawai;
+
+                            namaAnggota.add(spinnerText);
                             allPegawai.add(pegawai);
                         }
 

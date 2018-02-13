@@ -46,7 +46,7 @@
 
             <!-- Spinner Element -->
             <Spinner
-                android:id="@+id/spinner_trg"
+                android:id="@+id/spinner_trg_pegawai"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
 
