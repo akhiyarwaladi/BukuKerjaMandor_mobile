@@ -2,6 +2,7 @@ package com.example.dedra.bukukerjamandor.view;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -179,8 +180,12 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.action_done:{
-                onBackPressed();
-                return true;
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("nama", "haha");
+                setResult(RESULT_OK, resultIntent);
+                finish();
+                //onBackPressed();
+                //return true;
             }
         }
 

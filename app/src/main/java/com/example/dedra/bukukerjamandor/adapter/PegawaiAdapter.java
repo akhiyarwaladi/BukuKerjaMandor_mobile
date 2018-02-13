@@ -1,16 +1,28 @@
 package com.example.dedra.bukukerjamandor.adapter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dedra.bukukerjamandor.R;
 import com.example.dedra.bukukerjamandor.view.TambahPegawaiActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by Dedra on 29/08/2017.
@@ -19,10 +31,11 @@ import java.util.ArrayList;
 public class PegawaiAdapter extends RecyclerView.Adapter<PegawaiAdapter.ViewHolder> {
 
     private ArrayList<String> rvData;
-
+    Context mContext;
     public PegawaiAdapter(ArrayList<String> inputData) {
         rvData = inputData;
     }
+    private static final int TAG_REQ_PEG = 1;
 
     @Override
     public int getItemViewType(int position) {
@@ -52,7 +65,7 @@ public class PegawaiAdapter extends RecyclerView.Adapter<PegawaiAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
+        mContext = parent.getContext();
         View itemView;
 
         // membuat view baru
@@ -76,7 +89,7 @@ public class PegawaiAdapter extends RecyclerView.Adapter<PegawaiAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(view.getContext(), TambahPegawaiActivity.class);
-                    view.getContext().startActivity(i);
+                    ((Activity) mContext).startActivityForResult(i, TAG_REQ_PEG);
                 }
             });
         }
@@ -88,5 +101,4 @@ public class PegawaiAdapter extends RecyclerView.Adapter<PegawaiAdapter.ViewHold
             //holder.tvSubtitle.setText("Frau " + position);
         }
     }
-
 }
