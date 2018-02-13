@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -42,6 +43,8 @@ public class TambahPegawaiActivity extends AppCompatActivity {
     private String TAG = TambahActivity.class.getSimpleName();
     List<Pegawai> allPegawai = new ArrayList<Pegawai>();
     String apiKey, userId;
+    String namaAnggota[] = {};
+    private Spinner spNamaAnggota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,7 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         userId = sharedPreferencesUid.getString(Config.USERID_SHARED_PREF, "");
         apiKey = sharedPreferencesApi.getString(Config.APIKEY_SHARED_PREF, "");
-
+        spNamaAnggota = (Spinner) findViewById(R.id.spinner_trg);
         getAllPegawai();
     }
 
