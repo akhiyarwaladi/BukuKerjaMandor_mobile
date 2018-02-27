@@ -1,16 +1,12 @@
 package com.example.dedra.bukukerjamandor.helper;
 
-/**
- * Created by AW on 2/11/2018.
- */
-
 import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.ArrayList;
 
 /**
- * Created by AW on 2/15/2017.
+ * Created by Dedra on 10/12/2017.
  */
 
 public class MyPreferenceManager {

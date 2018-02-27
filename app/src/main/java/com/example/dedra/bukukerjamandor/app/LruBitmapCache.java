@@ -1,7 +1,7 @@
 package com.example.dedra.bukukerjamandor.app;
 
 /**
- * Created by AW on 2/11/2018.
+ * Created by Dedra on 03/12/2017.
  */
 
 import android.graphics.Bitmap;

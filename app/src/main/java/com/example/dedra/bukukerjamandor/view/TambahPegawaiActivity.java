@@ -92,10 +92,10 @@ public class TambahPegawaiActivity extends AppCompatActivity {
                             String panggilan_pegawai = dataObj.getString("panggilan_pegawai");
                             String jabatan = dataObj.getString("jabatan");
                             String status = dataObj.getString("status");
-                            String username = dataObj.getString("username");
+                            String kode_mandoran = dataObj.getString("kode_mandoran");
 
-                            Pegawai pegawai = new Pegawai( id_pegawai, nama_pegawai, panggilan_pegawai, jabatan, status, username );
-                            String spinnerText = id_pegawai + " - " + nama_pegawai;
+                            Pegawai pegawai = new Pegawai( id_pegawai, nama_pegawai, panggilan_pegawai, jabatan, status, kode_mandoran );
+                            String spinnerText = id_pegawai + " - " + nama_pegawai + " (" + panggilan_pegawai + ")";
 
                             namaAnggota.add(spinnerText);
                             allPegawai.add(pegawai);

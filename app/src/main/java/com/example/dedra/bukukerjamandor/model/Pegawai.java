@@ -7,18 +7,18 @@ import java.io.Serializable;
  */
 
 public class Pegawai implements Serializable {
-    private String id_pegawai, nama_pegawai, panggilan_pegawai, jabatan, status, username;
+    private String id_pegawai, nama_pegawai, panggilan_pegawai, jabatan, status, kode_mandoran;
 
     public Pegawai(){
 
     }
-    public Pegawai(String id_pegawai, String nama_pegawai, String panggilan_pegawai, String jabatan, String status, String username) {
+    public Pegawai(String id_pegawai, String nama_pegawai, String panggilan_pegawai, String jabatan, String status, String kode_mandoran) {
         this.id_pegawai = id_pegawai;
         this.nama_pegawai = nama_pegawai;
         this.panggilan_pegawai = panggilan_pegawai;
         this.jabatan = jabatan;
         this.status = status;
-        this.username = username;
+        this.kode_mandoran = kode_mandoran;
     }
 
     public String getId_pegawai() {
@@ -61,11 +61,9 @@ public class Pegawai implements Serializable {
         this.status = status;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getKode_mandoran() {return kode_mandoran;}
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setKode_mandoran(String kode_mandoran) {
+        this.kode_mandoran = kode_mandoran;
     }
 }

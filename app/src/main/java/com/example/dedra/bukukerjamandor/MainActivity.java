@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -120,9 +121,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new KalenderFragment();
                 break;
             case R.id.nav_logout:
+                fragment = new logout();
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setMessage("Exit Application?");
-                alertDialogBuilder.setPositiveButton("Yes",
+                alertDialogBuilder.setMessage("Keluar dari aplikasi?");
+                alertDialogBuilder.setPositiveButton("Ya",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
@@ -143,13 +145,14 @@ public class MainActivity extends AppCompatActivity
                                 //Saving the sharedpreferences
                                 editor.commit();
 
+                                finish();
                                 //Starting login activity
-                                Intent intent = new Intent(MainActivity.this, login.class);
-                                startActivity(intent);
+                                //Intent intent = new Intent(MainActivity.this, login.class);
+                                //startActivity(intent);
                             }
                         });
 
-                alertDialogBuilder.setNegativeButton("No",
+                alertDialogBuilder.setNegativeButton("Tidak",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
@@ -160,7 +163,6 @@ public class MainActivity extends AppCompatActivity
                 //Showing the alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
-                fragment = new logout();
                 break;
             default:
                 fragment = new BKMHariIniFragment();

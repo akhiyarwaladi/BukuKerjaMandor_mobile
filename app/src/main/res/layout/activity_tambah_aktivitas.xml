@@ -34,13 +34,14 @@
             <Spinner
                 android:id="@+id/spinner_aktivitas"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:paddingBottom="8dp"
-                android:paddingTop="8dp" />
+                android:paddingTop="8dp"
+                android:textSize="12sp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_trg"
+            android:id="@+id/layout_sektor_tanam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -50,15 +51,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Trg"
+                android:text="Sektor Tanam"
                 android:textSize="12sp" />
 
             <Spinner
-                android:id="@+id/spinner_trg"
+                android:id="@+id/spinner_sektor_tanam"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="12sp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:visibility="visible" />
 
         </LinearLayout>
 
@@ -68,7 +71,7 @@
 
             ]]><!-- Target Code -->
         <LinearLayout
-            android:id="@+id/layout_target_code"
+            android:id="@+id/layout_blok_tanam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -77,15 +80,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Target Code"
+                android:text="Blok Tanam"
                 android:textSize="12sp" />
 
             <Spinner
-                android:id="@+id/spinner_target_code"
+                android:id="@+id/spinner_blok_tanam"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:visibility="visible" />
         </LinearLayout>
 
         <!-- Spinner Element --><![CDATA[

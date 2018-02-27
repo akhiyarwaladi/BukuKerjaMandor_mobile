@@ -1,9 +1,5 @@
 package com.example.dedra.bukukerjamandor.app;
 
-/**
- * Created by AW on 2/11/2018.
- */
-
 import android.app.Application;
 
 import com.android.volley.Request;
@@ -12,7 +8,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.dedra.bukukerjamandor.helper.MyPreferenceManager;
 
 /**
- * Created by AW on 2/15/2017.
+ * Created by Dedra on 03/12/2017.
  */
 
 public class MyApplication extends Application{

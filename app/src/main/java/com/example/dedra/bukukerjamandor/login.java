@@ -59,7 +59,7 @@ public class login extends AppCompatActivity {
         ButterKnife.bind(this);
 
         pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
+        pDialog.setMessage("Otentikasi...");
         pDialog.setCancelable(true);
 
 //        _loginButton.setOnClickListener(new View.OnClickListener() {
@@ -97,19 +97,19 @@ public class login extends AppCompatActivity {
         showPDialog();
     }
 
-    @OnClick(R.id.btnLinkToRegisterScreen)
-    public void register(){
-        Intent intent = new Intent(login.this, register.class);
-        startActivity(intent);
-    }
+//    @OnClick(R.id.btnLinkToRegisterScreen)
+//    public void register(){
+//        Intent intent = new Intent(login.this, register.class);
+//        startActivity(intent);
+//    }
 
     private void checkLoginWithPass() {
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Keys.SHARED_PREFS_KEY, 0);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putString(Keys.EMAIL_SPK, _usernameText.getText().toString());
+        editor.putString(Keys.USERNAME_SPK, _usernameText.getText().toString());
 
-        final String email = _usernameText.getText().toString();
+        final String username = _usernameText.getText().toString();
         final String password = _passwordText.getText().toString();
         //authenticate user
         StringRequest stringRequest = new StringRequest(Request.Method.POST, EndPoint.URL_LOGIN,
@@ -130,20 +130,20 @@ public class login extends AppCompatActivity {
 
                                 String username = String.valueOf(obj.get("username"));
                                 String apikey = String.valueOf(obj.get("apiKey"));
-                                String emailaddress = String.valueOf(obj.get("email"));
+                                //String emailaddress = String.valueOf(obj.get("email"));
 
                                 SharedPreferences user = login.this.getSharedPreferences(Config.SHARED_PREF_NAME,
                                         Context.MODE_PRIVATE);
                                 SharedPreferences apiKey = login.this.getSharedPreferences(Config.SHARED_PREF_API,
                                         Context.MODE_PRIVATE);
 
-                                SharedPreferences email = login.this.getSharedPreferences(Config.SHARED_PREF_EMAIL,
-                                        Context.MODE_PRIVATE);
+                                //SharedPreferences email = login.this.getSharedPreferences(Config.SHARED_PREF_EMAIL,
+                                //        Context.MODE_PRIVATE);
 
                                 SharedPreferences.Editor editor = user.edit();
                                 SharedPreferences.Editor editor1 = apiKey.edit();
 
-                                SharedPreferences.Editor editor3 = email.edit();
+                                //SharedPreferences.Editor editor3 = email.edit();
 
 
                                 editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, true);
@@ -152,13 +152,13 @@ public class login extends AppCompatActivity {
                                 editor.putString(Config.USERNAME_SHARED_PREF, username);
                                 editor1.putString(Config.APIKEY_SHARED_PREF, apikey);
 
-                                editor3.putString(Config.EMAILADDRESS_SHARED_PREF, emailaddress);
+                                //editor3.putString(Config.EMAILADDRESS_SHARED_PREF, emailaddress);
 
 
                                 editor.commit();
                                 editor1.commit();
 
-                                editor3.commit();
+                                //editor3.commit();
 
 
                                 Log.d("user", username);
@@ -189,7 +189,7 @@ public class login extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("email", email);
+                params.put("username", username);
                 //params.put("email", email);
                 params.put("password", password);
                 return params;
@@ -206,7 +206,7 @@ public class login extends AppCompatActivity {
     }
 
 
-    public void login_1() {
+/*    public void login_1() {
         Log.d(TAG, "Login1");
 
         if (!validate()) {
@@ -251,17 +251,17 @@ public class login extends AppCompatActivity {
                     }, 2000);
         }
 
-    }
+    }*/
 
 
     @Override
     public void onBackPressed() {
         // disable going back to the MainActivity
-        finish();
+        super.finish();
 
     }
 
-    public void onLoginSuccess() {
+/*    public void onLoginSuccess() {
         _loginButton.setEnabled(true);
         startActivity(new Intent(login.this, MainActivity.class));
     }
@@ -300,7 +300,7 @@ public class login extends AppCompatActivity {
         }
 
         return valid;
-    }
+    }*/
 
     private void showPDialog(){
         if(!pDialog.isShowing()){
@@ -314,6 +314,7 @@ public class login extends AppCompatActivity {
         }
     }
 
+/*
     public static boolean isValidEmail(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
@@ -325,4 +326,5 @@ public class login extends AppCompatActivity {
     public static String encodeEmail(String userEmail) {
         return userEmail.replace(".", ",");
     }
+*/
 }

@@ -86,7 +86,6 @@ public class MaterialFragment extends Fragment{
 
         initDataset();
 
-
         rvView = (RecyclerView) view.findViewById(R.id.rv_main);
         allMaterial = new ArrayList<>();
 

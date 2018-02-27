@@ -33,33 +33,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //BKM_harian create statement
     private static final String CREATE_TABLE_BKM = "CREATE TABLE "
-            + TABLE_BKM + "(NO_BKM CHAR(10) PRIMARY KEY, TGL_BKM DATE, NO_AKTIVITAS INTEGER, "
+            + TABLE_BKM + "(NO_BKM CHAR(10) PRIMARY KEY, TGL_BKM DATE, NO_AKTIVITAS INTEGER(2), "
             + "KODE_MANDORAN CHAR(10))";
 
     //BKM_aktivitas create statement
     private static final String CREATE_TABLE_BKM_AKTIVITAS = "CREATE TABLE "
             + TABLE_BKM_AKTIVITAS + "(NO_BKM CHAR(10), NO_AKTIVITAS INTEGER PRIMARY KEY, "
-            + "KODE_AKTIVITAS INTEGER, SEKTOR_TANAM VARCHAR(3), BLOK_TANAM VARCHAR(3), "
-            + "NO_MATERIAL INTEGER, NO_PEGAWAI INTEGER, PATH_IMAGE TEXT)";
+            + "SEKTOR_TANAM VARCHAR(3), BLOK_TANAM VARCHAR(3), KODE_AKTIVITAS CHAR(10), "
+            + "FOTO_AKTIVITAS TEXT)";
 
     //BKM_material create statement
     private static final String CREATE_TABLE_BKM_MATERIAL = "CREATE TABLE "
-            + TABLE_BKM_MATERIAL + "(NO_BKM CHAR(10), NO_AKTIVITAS INTEGER, "
-            + "NO_MATERIAL INTEGER PRIMARY KEY, KODE_MATERIAL CHAR, KUANTITAS INTEGER)";
+            + TABLE_BKM_MATERIAL + "(NO_BKM CHAR(10), NO_MATERIAL INTEGER(2) PRIMARY KEY, "
+            + "NO_AKTIVITAS INTEGER(2), KODE_MATERIAL CHAR(10), KUANTITAS INTEGER(2))";
 
     //BKM_pegawai create statement
     private static final String CREATE_TABLE_BKM_PEGAWAI = "CREATE TABLE "
-            + TABLE_BKM_PEGAWAI + "(NO_BKM CHAR(10), NO_AKTIVITAS INTEGER, "
-            + "NO_PEGAWAI INTEGER PRIMARY KEY, KODE_PEGAWAI CHAR, HASIL_KERJA INTEGER)";
+            + TABLE_BKM_PEGAWAI + "(NO_BKM CHAR(10), NO_AKTIVITAS INTEGER(2), "
+            + "NO_PEGAWAI INTEGER(2) PRIMARY KEY, ID_PEGAWAI CHAR(10), "
+            + "HASIL_KERJA_RIIL DECIMAL(3,2))";
 
-    private static final String CREATE_TABLE_RKH = "CREATE TABLE "
+    /*private static final String CREATE_TABLE_RKH = "CREATE TABLE "
             + TABLE_RKH + "(NO_RKH CHAR(10) PRIMARY KEY, TGL_KEGIATAN DATE, "
             + "SEKTOR_TANAM VARCHAR(3), BLOK_TANAM VARCHAR(3), KODE_MANDORAN CHAR(10), "
-            + "KODE_AKTIVITAS CHAR(10))";
+            + "KODE_AKTIVITAS CHAR(10))";*/
 
     private static final String CREATE_TABLE_AKTIVITAS = "CREATE TABLE "
             + TABLE_AKTIVITAS + "(KODE_AKTIVITAS INTEGER(10) PRIMARY KEY, "
-            + "NAMA_AKTIVITAS VARCHAR(50), KODE_MATERIAL CHAR(10))";
+            + "NAMA_AKTIVITAS VARCHAR(50))";
 
     private static final String CREATE_TABLE_MATERIAL = "CREATE TABLE "
             + TABLE_MATERIAL + "(KODE_MATERIAL CHAR(10) PRIMARY KEY, NAMA_MATERIAL VARCHAR(50),"
@@ -67,8 +68,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_PEGAWAI = "CREATE TABLE "
             + TABLE_PEGAWAI + "(ID_PEGAWAI CHAR(10) PRIMARY KEY, NAMA_PEGAWAI VARCHAR(25), "
-            + "PANGGILAN_PEGAWAI VARCHAR(10), JABATAN BOOLEAN, "
-            + "STATUS BOOLEAN, USERNAME VARCHAR(10))";
+            + "PANGGILAN_PEGAWAI VARCHAR(10), JABATAN CHAR(10), "
+            + "STATUS CHAR(10), KODE_MANDORAN CHAR(10), HASIL_KERJA_STD DECIMAL(3,2))";
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -80,7 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_BKM_AKTIVITAS);
         db.execSQL(CREATE_TABLE_BKM_MATERIAL);
         db.execSQL(CREATE_TABLE_BKM_PEGAWAI);
-        db.execSQL(CREATE_TABLE_RKH);
+        //db.execSQL(CREATE_TABLE_RKH);
         db.execSQL(CREATE_TABLE_AKTIVITAS);
         db.execSQL(CREATE_TABLE_MATERIAL);
         db.execSQL(CREATE_TABLE_PEGAWAI);

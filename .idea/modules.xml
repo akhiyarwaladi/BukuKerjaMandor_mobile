@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BukuKerjaMandor.iml" filepath="$PROJECT_DIR$/BukuKerjaMandor.iml" />
+      <module fileurl="file://D:\AndroidStudioProjects\BukuKerjaMandor_mobile\BukuKerjaMandor.iml" filepath="D:\AndroidStudioProjects\BukuKerjaMandor_mobile\BukuKerjaMandor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BukuKerjaMandor_mobile.iml" filepath="$PROJECT_DIR$/BukuKerjaMandor_mobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
