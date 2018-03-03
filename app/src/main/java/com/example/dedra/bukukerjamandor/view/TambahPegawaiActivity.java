@@ -11,8 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -25,6 +28,7 @@ import com.example.dedra.bukukerjamandor.R;
 import com.example.dedra.bukukerjamandor.app.Config;
 import com.example.dedra.bukukerjamandor.app.EndPoint;
 import com.example.dedra.bukukerjamandor.app.MyApplication;
+import com.example.dedra.bukukerjamandor.helper.DatabaseHelper;
 import com.example.dedra.bukukerjamandor.model.Material;
 import com.example.dedra.bukukerjamandor.model.Pegawai;
 
@@ -36,105 +40,84 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Created by Dedra on 09/10/2017.
  */
 
 public class TambahPegawaiActivity extends AppCompatActivity {
+    DatabaseHelper db;
     private String TAG = TambahActivity.class.getSimpleName();
-    List<Pegawai> allPegawai = new ArrayList<Pegawai>();
-    String apiKey, userId;
-    ArrayAdapter<String> adapter;
-    List <String> namaAnggota;
+//    List<Pegawai> allPegawai = new ArrayList<Pegawai>();
+//    String apiKey, userId;
+//    ArrayAdapter<String> adapter;
+//    List <String> namaAnggota;
+
+    TextView hasil_std;
     private Spinner spNamaAnggota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // database handler
+        db = new DatabaseHelper(this);
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_tambah_pegawai);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final SharedPreferences sharedPreferencesUid= this.getSharedPreferences(Config.SHARED_PREF_ID,
-                Context.MODE_PRIVATE);
-        final SharedPreferences sharedPreferencesApi = this.getSharedPreferences(Config.SHARED_PREF_API,
-                Context.MODE_PRIVATE);
-        userId = sharedPreferencesUid.getString(Config.USERID_SHARED_PREF, "");
-        apiKey = sharedPreferencesApi.getString(Config.APIKEY_SHARED_PREF, "");
-        spNamaAnggota = (Spinner) findViewById(R.id.spinner_trg_pegawai);
 
-        namaAnggota = new ArrayList<String>();
-        getAllPegawai();
-        adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, namaAnggota);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spNamaAnggota.setAdapter(adapter);
+//        final SharedPreferences sharedPreferencesUid= this.getSharedPreferences(Config.SHARED_PREF_ID,
+//                Context.MODE_PRIVATE);
+//        final SharedPreferences sharedPreferencesApi = this.getSharedPreferences(Config.SHARED_PREF_API,
+//                Context.MODE_PRIVATE);
+//        userId = sharedPreferencesUid.getString(Config.USERID_SHARED_PREF, "");
+//        apiKey = sharedPreferencesApi.getString(Config.APIKEY_SHARED_PREF, "");
+
+        spNamaAnggota = (Spinner) findViewById(R.id.spinner_trg_pegawai);
+        hasil_std = (TextView) findViewById(R.id.HasilKerjaStandar);
+
+        loadSpinnerData();
+        spNamaAnggota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // On selecting a spinner item
+                String label = parent.getItemAtPosition(position).toString();
+
+                String[] parts = label.split(Pattern.quote(" - "));
+                String id_pegawai = parts[0];
+                String nama_pegawai = parts[1];
+
+                Log.d("Pegawai yang dipilih: ", nama_pegawai);
+
+                hasil_std.setText(db.getHasilSTD(id_pegawai));
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
-    public void getAllPegawai(){
+    public void loadSpinnerData(){
+        // Spinner Drop down elements
+        List<String> pegawai = db.getPegawai();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,
-                EndPoint.URL_PEGAWAI, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.e(TAG, "onResponse: " + response);
-                try {
-                    JSONObject obj = new JSONObject(response);
-                    if (obj.getBoolean("error") == false) {
-                        //Toast.makeText(DashboardActivity.this, "Data dapat"+response, Toast.LENGTH_SHORT).show();
-                        JSONArray data = obj.getJSONArray("tasks");
-                        for (int i = 0; i < data.length(); i++) {
-                            JSONObject dataObj = (JSONObject) data.get(i);
-                            Log.i("dataPegawaiDapat",""+dataObj);
-                            String id_pegawai = dataObj.getString("id_pegawai");
-                            String nama_pegawai = dataObj.getString("nama_pegawai");
-                            String panggilan_pegawai = dataObj.getString("panggilan_pegawai");
-                            String jabatan = dataObj.getString("jabatan");
-                            String status = dataObj.getString("status");
-                            String kode_mandoran = dataObj.getString("kode_mandoran");
+        // Creating adapter for spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, pegawai);
 
-                            Pegawai pegawai = new Pegawai( id_pegawai, nama_pegawai, panggilan_pegawai, jabatan, status, kode_mandoran );
-                            String spinnerText = id_pegawai + " - " + nama_pegawai + " (" + panggilan_pegawai + ")";
+        // Drop down layout style - list view with radio button
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-                            namaAnggota.add(spinnerText);
-                            allPegawai.add(pegawai);
-                        }
 
-                    } else {
-                        // error in fetching data
-                        Toast.makeText(TambahPegawaiActivity.this, "" + obj.getJSONObject("error").getString("message"), Toast.LENGTH_LONG).show();
-
-                    }
-                } catch (JSONException e) {
-                    Log.e(TAG, "json parsing error: " + e.getMessage());
-                    Toast.makeText(TambahPegawaiActivity.this, "Json parse error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                NetworkResponse networkResponse = error.networkResponse;
-                Log.e(TAG, "Volley error: " + error.getMessage() + ", code: " + networkResponse);
-                Toast.makeText(TambahPegawaiActivity.this, "Volley errror: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map headers = new HashMap();
-                headers.put("Authorization", apiKey);
-                headers.put("x-snow-token", "SECRET_API_KEY");
-
-                return headers;
-            }
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                return super.getParams();
-            }
-        };
-        //Adding request to request queue
-        MyApplication.getInstance().addToRequestQueue(stringRequest);
+        // attaching data adapter to spinner
+        spNamaAnggota.setAdapter(adapter);
     }
 
 

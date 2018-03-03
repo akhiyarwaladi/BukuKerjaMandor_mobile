@@ -1,19 +1,22 @@
 package com.example.dedra.bukukerjamandor.view;
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.dedra.bukukerjamandor.MainActivity;
 import com.example.dedra.bukukerjamandor.adapter.AktivitasAdapter;
 import com.example.dedra.bukukerjamandor.DividerItemDecoration;
 import com.example.dedra.bukukerjamandor.R;
+import com.example.dedra.bukukerjamandor.app.Config;
+import com.example.dedra.bukukerjamandor.helper.DatabaseHelper;
 
 import java.util.ArrayList;
 
@@ -26,7 +29,11 @@ public class BKMHariIniFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<String> dataSet;
-    //int i=0;
+
+    private DatabaseHelper db;
+    private String TAG = MainActivity.class.getSimpleName();
+    String apiKey,userId;
+    int i=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +52,18 @@ public class BKMHariIniFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        db = new DatabaseHelper(getActivity());
+
+        final SharedPreferences sharedPreferencesUid= this.getActivity().getSharedPreferences(Config.SHARED_PREF_ID,
+                Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferencesApi = this.getActivity().getSharedPreferences(Config.SHARED_PREF_API,
+                Context.MODE_PRIVATE);
+        userId = sharedPreferencesUid.getString(Config.USERID_SHARED_PREF, "");
+        apiKey = sharedPreferencesApi.getString(Config.APIKEY_SHARED_PREF, "");
+
+        Log.d("uid", userId);
+        Log.d("api", apiKey);
+
 
         /*if (i == 0) {
             i++;
@@ -54,7 +73,7 @@ public class BKMHariIniFragment extends Fragment {
 
         //else {
         dataSet = new ArrayList<>();
-        initDataset();
+        //initDataset();
 
         rvView = (RecyclerView) view.findViewById(R.id.rv_main);
 
@@ -87,15 +106,15 @@ public class BKMHariIniFragment extends Fragment {
         //}
     }
 
-    private void initDataset() {
+/*    private void initDataset() {
 
-        /*
+        *//*
          * Tambahkan item ke dataset
          * dalam prakteknya bisa bermacam2
          * tidak hanya String seperti di kasus ini
-         */
+         *//*
         dataSet.add("Tanam Sawit");
         dataSet.add("Semprot Lalang");
 
-    }
+    }*/
 }

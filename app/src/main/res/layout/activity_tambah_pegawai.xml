@@ -75,12 +75,13 @@
                 android:layout_marginTop="10dip"
                 android:text="Hasil Kerja Standar" />
 
-            <EditText
-                android:id="@+id/editHasilKerjaStandar"
+            <TextView
+                android:id="@+id/HasilKerjaStandar"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal" />
+                android:textSize="16sp"/>
 
             <!-- Target Code -->
             <TextView

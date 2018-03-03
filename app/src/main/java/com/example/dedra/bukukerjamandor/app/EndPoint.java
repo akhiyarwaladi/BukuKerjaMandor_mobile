@@ -13,5 +13,12 @@ public class EndPoint {
     public static final String URL_RKH_AKTIVITAS = BASE_URL + "/getRKHAktivitas";
     public static final String URL_LOGIN = BASE_URL + "/login";
     public static final String URL_REGISTER = BASE_URL + "/register";
+    public static final String URL_GET_AKTIVITAS_SQLITE = BASE_URL + "/getAktivitasSQLite";
+    public static final String URL_GET_MATERIAL_SQLITE = BASE_URL + "/getMaterialSQLite";
+    public static final String URL_GET_PEGAWAI_SQLITE = BASE_URL + "/getPegawaiSQLite";
+    public static final String URL_GET_RKH_SQLITE = BASE_URL + "/getRKHSQLite";
+    public static final String URL_GET_RKH_AKTIVITAS_SQLITE = BASE_URL + "/getRKHAktivitasSQLite";
+    public static final String URL_GET_RKH_MATERIAL_SQLITE = BASE_URL + "/getRKHMaterialSQLite";
+    public static final String URL_GET_RKH_PEGAWAI_SQLITE = BASE_URL + "/getRKHPegawaiSQLite";
     public static final String URL_PREDICTION = "http://192.168.43.98:33/predict";
 }

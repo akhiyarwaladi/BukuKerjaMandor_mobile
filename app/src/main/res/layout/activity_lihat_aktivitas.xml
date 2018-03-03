@@ -21,12 +21,27 @@
             android:orientation="vertical">
 
             <!-- Trg -->
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dip"
-                android:text="Trg" />
+                android:text="Aktivitas" />
+
+            <TextView
+                android:id="@+id/data_aktivitas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ABC"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dip"
+                android:text="Sektor Tanam" />
 
             <!-- Spinner Element -->
             <TextView
@@ -44,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dip"
-                android:text="Target Code" />
+                android:text="Blok Tanam" />
 
             <!-- Spinner Element -->
             <TextView
@@ -57,24 +72,12 @@
             />
 
             <!-- Aktivitas -->
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dip"
-                android:text="Aktivitas" />
 
-            <!-- Spinner Element -->
-            <TextView
-                android:id="@+id/data_aktivitas"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="ABC"
-                android:textStyle="bold" />
+            <!-- Spinner Element --><![CDATA[
             //android:prompt="@string/spinner_title"
             />
 
-            <!-- Foto -->
+            ]]><!-- Foto -->
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

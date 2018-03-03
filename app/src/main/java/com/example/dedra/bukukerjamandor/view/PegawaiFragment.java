@@ -34,7 +34,7 @@ public class PegawaiFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         dataSet = new ArrayList<>();
-        initDataset();
+//        initDataset();
 
         rvView = (RecyclerView) view.findViewById(R.id.rv_main);
 
@@ -63,19 +63,19 @@ public class PegawaiFragment extends Fragment {
     }
 
 
-    private void initDataset() {
-
-        /*
-         * Tambahkan item ke dataset
-         * dalam prakteknya bisa bermacam2
-         * tidak hanya String seperti di kasus ini
-         */
-        dataSet.add("Pegawai 1");
-        dataSet.add("Pegawai 2");
-        dataSet.add("Pegawai 3");
-        dataSet.add("Pegawai 4");
-        dataSet.add("Pegawai 5");
-        dataSet.add("Pegawai 6");
-
-    }
+//    private void initDataset() {
+//
+//        /*
+//         * Tambahkan item ke dataset
+//         * dalam prakteknya bisa bermacam2
+//         * tidak hanya String seperti di kasus ini
+//         */
+//        dataSet.add("Pegawai 1");
+//        dataSet.add("Pegawai 2");
+//        dataSet.add("Pegawai 3");
+//        dataSet.add("Pegawai 4");
+//        dataSet.add("Pegawai 5");
+//        dataSet.add("Pegawai 6");
+//
+//    }
 }

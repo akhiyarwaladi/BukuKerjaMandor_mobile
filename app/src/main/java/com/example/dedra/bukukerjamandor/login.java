@@ -4,18 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.text.TextUtils;
 import android.util.Log;
 
 import android.content.Intent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -26,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.dedra.bukukerjamandor.app.Config;
 import com.example.dedra.bukukerjamandor.app.EndPoint;
 import com.example.dedra.bukukerjamandor.app.MyApplication;
+import com.example.dedra.bukukerjamandor.helper.DatabaseHelper;
 import com.example.dedra.bukukerjamandor.utils.Keys;
 
 import org.json.JSONException;
@@ -51,6 +46,7 @@ public class login extends AppCompatActivity {
     private String TAG = login.class.getSimpleName();
     ProgressDialog pDialog;
     private boolean loggedIn = false;
+    private DatabaseHelper db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +58,7 @@ public class login extends AppCompatActivity {
         pDialog.setMessage("Otentikasi...");
         pDialog.setCancelable(true);
 
+        db = new DatabaseHelper(getApplicationContext());
 //        _loginButton.setOnClickListener(new View.OnClickListener() {
 //
 //            @Override
@@ -124,13 +121,17 @@ public class login extends AppCompatActivity {
 
                             boolean b = (boolean) obj.get("error");
                             if (b){
-                                Toast.makeText(login.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login.this, "Username atau password "
+                                        + "yang dimasukkan salah", Toast.LENGTH_SHORT).show();
                             }
                             else {
 
+                                String id_pegawai = String.valueOf(obj.get("id_pegawai"));
                                 String username = String.valueOf(obj.get("username"));
                                 String apikey = String.valueOf(obj.get("apiKey"));
-                                //String emailaddress = String.valueOf(obj.get("email"));
+                                String created_at = String.valueOf(obj.get("createdAt"));
+
+                                db.addUser(id_pegawai, username, apikey, created_at);
 
                                 SharedPreferences user = login.this.getSharedPreferences(Config.SHARED_PREF_NAME,
                                         Context.MODE_PRIVATE);
@@ -152,14 +153,8 @@ public class login extends AppCompatActivity {
                                 editor.putString(Config.USERNAME_SHARED_PREF, username);
                                 editor1.putString(Config.APIKEY_SHARED_PREF, apikey);
 
-                                //editor3.putString(Config.EMAILADDRESS_SHARED_PREF, emailaddress);
-
-
                                 editor.commit();
                                 editor1.commit();
-
-                                //editor3.commit();
-
 
                                 Log.d("user", username);
                                 Log.d("api", apikey);
@@ -314,17 +309,4 @@ public class login extends AppCompatActivity {
         }
     }
 
-/*
-    public static boolean isValidEmail(String email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
-
-    public static boolean isValidPassword(String password) {
-        return true;
-    }
-
-    public static String encodeEmail(String userEmail) {
-        return userEmail.replace(".", ",");
-    }
-*/
 }
